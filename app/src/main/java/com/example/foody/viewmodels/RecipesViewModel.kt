@@ -2,8 +2,10 @@ package com.example.foody.viewmodels
 
 import android.app.Application
 import android.widget.Toast
+import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.foody.data.DataStoreRepository
@@ -25,7 +27,8 @@ import kotlinx.coroutines.launch
 
 class RecipesViewModel @ViewModelInject constructor(
     application: Application,
-    private val dataStoreRepository: DataStoreRepository
+    private val dataStoreRepository: DataStoreRepository,
+    @Assisted private val savedStateHandle: SavedStateHandle
 ) : AndroidViewModel(application) {
 
     private var mealType = DEFAULT_MEAL_TYPE
